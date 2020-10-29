@@ -1,0 +1,7 @@
+.imagem{
+    width: 100px;
+}
+.mr-auto{
+    display: flex;
+    justify-content: space-around;
+}

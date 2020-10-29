@@ -1,0 +1,24 @@
+footer{
+    background-color: black;
+    height:150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.paragrafo{
+    color: white;
+    padding-top: 20px;
+}
+
+.img{
+    color: white;
+    width: 160px;
+}
+
+.flex{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
