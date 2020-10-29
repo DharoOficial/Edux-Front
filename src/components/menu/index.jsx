@@ -5,7 +5,7 @@ import logo from '../../assets/logo.png'
 
 const Menu = () => {
     return (
-        <Navbar bg="light" expand="lg" >
+        <Navbar bg="light" expand="lg"  className="conntainer" >
             <Navbar.Brand href="#home"><img src={logo} alt="logo edux" className="imagem"/></Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
@@ -22,7 +22,9 @@ const Menu = () => {
                 </Nav>
                 
             </Navbar.Collapse>
+            
         </Navbar>
+        
     )
 }
 
