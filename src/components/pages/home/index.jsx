@@ -56,8 +56,8 @@ const Home = () => {
                         somos um grupo de aprendizado da escola DEV senai
                     </p>
                     <p>
-                        <Button variant="success">Login</Button>
-                        <Button variant="warning" style={{ marginLeft: '20px' }}>Cadastre-se</Button>
+                        <Button variant="success" href="/login">Login</Button>
+                        <Button variant="warning" href="/cadastrar" style={{ marginLeft: '20px' }}>Cadastre-se</Button>
                     </p>
                 </Jumbotron>
             </div>
