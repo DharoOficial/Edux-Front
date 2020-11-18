@@ -1,38 +1,43 @@
 import React, {useState} from 'react';
 import Menu from '../../menu/index';
 import Rodape from '../../rodape/index';
-import { Jumbotron, Button, Form } from 'react-bootstrap'
+import { Jumbotron, Button, Form } from 'react-bootstrap';  
+import {url} from '../../../utils/constantis';
 
 const Cadastro = () => {
 
-    const cadastro =() => {
-        const[id, setId] = useState(0);
-        const [value.nome, setNome] = useState('');
-        const [email, setEmail] = useState('');
-        const [senha, setSenha] = useState('');
-    }
-    const login = {
-        Nome  : nome,
-        Email : email,
-        Senha : senha
-    }
+    const [email, setEmail] = useState('');
+    const [nome, setNome] = useState('');
+    const [senha, setSenha] = useState('');
+    const [idUsuario, setIdUsuario] = useState(0);
 
-
-    fetch('http://localhost:62602/api/account/login', {
-        method: 'POST',
-        body: JSON.stringify(login),
-
-        headers: {
-            'content-type': 'application/json'
+    const salvar = (event) => {
+        event.preventDefault();
+    
+        const login = {
+            nome : nome,
+            email : email,
+            senha : senha,
+            idUsuario : idUsuario,
         }
+    
+        let method = (idUsuario === 0 ? 'POST' : 'PUT')
         
-    })
-    .then(response => {
-        if (response.ok === true){
-            return response.json();
-        }
-        alert('Dados nao encontrado')
-    })
+    
+        fetch(url + "/Usuario", {
+            method : method,
+            body: JSON.stringify(login),
+            headers : {
+                'content-type' : 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert('Usuario Cadastrado');
+            console.log(data.data)
+        })
+        .catch(err => console.error(err))
+    }
 
     return (
         <div>
@@ -67,10 +72,10 @@ const Cadastro = () => {
 
                     <Form.Group controlId="formBasicPassword">
                         <Form.Label>Crie uma Senha</Form.Label>
-                        <Form.Control type="password" placeholder="Ex: 123456" />
+                        <Form.Control type="password" placeholder="Ex: 123456" value={senha} onChange={event => setSenha(event.target.value)} />
                     </Form.Group>
                     
-                    <Button variant="primary" type="submit" style={{ marginTop: '30px'}}>
+                    <Button variant="primary" type="submit" style={{ marginTop: '30px'}} onClick={event => salvar(event)}>
                         Cadastrar
                     </Button>
                 </Form>

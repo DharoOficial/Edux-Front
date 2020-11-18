@@ -4,6 +4,7 @@ import Menu from '../../menu/index';
 import Rodape from '../../rodape/index';
 import { Jumbotron, Button, Form } from 'react-bootstrap'
 import jwt_decode from "jwt-decode";
+import {url} from '../../../utils/constantis'
 
 const Login = () => {
 
@@ -14,14 +15,14 @@ const Login = () => {
     const logar = (event) => {
         event.preventDefault();
 
-        console.log('${email} - ${senha}');
+        console.log(email +'-' + senha);
 
         const login = {
             email: email,
             senha: senha
         }
 
-        fetch('http://localhost:62602/api/account/login', {
+        fetch(url + '/Login', {
             method: 'POST',
             body: JSON.stringify(login),
 
